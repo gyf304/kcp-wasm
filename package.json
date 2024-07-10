@@ -1,0 +1,28 @@
+{
+  "name": "kcp-wasm",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "npm": "^10.8.1",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./kcp.wasm": {
+      "import": "./dist/kcp.wasm",
+      "require": "./dist/kcp.wasm"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
+  }
+}
